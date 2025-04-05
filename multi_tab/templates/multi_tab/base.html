@@ -1,0 +1,30 @@
+<!-- multi_tab/templates/multi_tab/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка знаний по арифметике</title>
+    <link rel="stylesheet" href="{% static 'multi_tab/css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Проверка знаний по арифметике</h1>
+        <nav class="nav">
+            <a href="{% url 'home' %}" class="nav__link">Главная</a>
+            <a href="{% url 'name_input' 'multiplication' %}" class="nav__link">Умножение</a>
+            <a href="{% url 'name_input' 'division' %}" class="nav__link">Деление</a>
+            <a href="{% url 'name_input' 'squares' %}" class="nav__link">Квадраты</a>
+            <a href="{% url 'results' %}" class="nav__link">Статистика</a>
+        </nav>
+    </header>
+    <main class="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="footer">
+        <p>© 2023 Проверка знаний по арифметике</p>
+    </footer>
+</body>
+</html>

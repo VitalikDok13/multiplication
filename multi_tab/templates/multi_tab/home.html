@@ -1,0 +1,41 @@
+<!-- multi_tab/templates/multi_tab/home.html -->
+{% extends 'multi_tab/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="home-container">
+    <div class="welcome-section">
+        <h2>Добро пожаловать в тренажёр по арифметике!</h2>
+        <p>Проверьте и улучшите свои знания таблицы умножения, деления и квадратов чисел.</p>
+    </div>
+    
+    <div class="features">
+        <h3>Доступные тесты:</h3>
+        <div class="test-cards">
+            <div class="test-card">
+                <h4>Умножение</h4>
+                <p>Проверка знаний таблицы умножения чисел от 2 до 10</p>
+                <a href="{% url 'name_input' 'multiplication' %}" class="test-button">Начать тест</a>
+            </div>
+            
+            <div class="test-card">
+                <h4>Деление</h4>
+                <p>Проверка знаний таблицы деления чисел от 2 до 10</p>
+                <a href="{% url 'name_input' 'division' %}" class="test-button">Начать тест</a>
+            </div>
+            
+            <div class="test-card">
+                <h4>Квадраты чисел</h4>
+                <p>Проверка знаний квадратов чисел от 1 до 15</p>
+                <a href="{% url 'name_input' 'squares' %}" class="test-button">Начать тест</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="stats-section">
+        <h3>Посмотреть статистику</h3>
+        <p>Ознакомьтесь с результатами всех пользователей</p>
+        <a href="{% url 'results' %}" class="stats-button">Перейти к статистике</a>
+    </div>
+</div>
+{% endblock %}

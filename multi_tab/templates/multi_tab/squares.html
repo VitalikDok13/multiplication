@@ -1,0 +1,24 @@
+{% extends 'multi_tab/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="quiz-container">
+    <h2>Проверка квадратов чисел</h2>
+    <p class="progress">Вопрос {{ question_number }} из {{ total_questions }}</p>
+    
+    <div class="question-card">
+        <p class="question-text">Сколько будет {{ question.question }}?</p>
+        
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        <p class="attempts-message">Осталось попыток: {{ attempts_left }}</p>
+        {% endif %}
+        
+        <form method="post">
+            {% csrf_token %}
+            <input type="number" name="answer" class="answer-input" required>
+            <button type="submit" class="submit-button">Ответить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
