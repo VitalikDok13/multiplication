@@ -1,4 +1,4 @@
-# multi_tab/urls.py
+"""Модуль с url"""
 from django.urls import path
 from .views import (HomeView, MultiplicationView, DivisionView, 
                    ResultsView, SquaresView, NameInputView)
