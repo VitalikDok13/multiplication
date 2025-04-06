@@ -214,6 +214,12 @@ class ResultsView(View):
         
         # Получаем общую статистику по всем пользователям
         all_results = QuizResult.objects.all().order_by('-created_at')[:50]
+        
+        # Если нет результатов вообще
+        if not all_results and not user_answers:
+            return render(request, self.template_name)
+        
+        # Получаем результаты текущего пользователя
         user_results = QuizResult.objects.filter(username=username).order_by('-created_at')
         
         # Читаем историю из файла
@@ -232,7 +238,7 @@ class ResultsView(View):
             'user_results': user_results,
             'username': username
         })
-
+    
 # Добавляем миксин к классам представлений
 MultiplicationView.handle_quiz_post = QuizMixin.handle_quiz_post
 MultiplicationView.save_to_file = QuizMixin.save_to_file
